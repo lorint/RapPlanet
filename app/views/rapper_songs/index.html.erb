@@ -1,0 +1,52 @@
+<h1>Rapper Songs</h1>
+
+<style>
+  table{
+    border-collapse:collapse;
+  }
+  table td.chart{
+    border:1px solid #008000;
+    width: 50px;
+    text-align: center;
+  }
+  table th{
+     -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+       -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
+             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+  }
+</style>
+
+<script>
+  $(document).ready(function () {
+      $('table th').css('height', '100px').
+        css('width', '30px');
+  });
+</script>
+
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <% @rappers.each do |rapper| %>
+        <th><%= rapper.name %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.title, song.url, target: "_blank" %></td>
+        <% @rappers.each do |rapper| %>
+          <td class="chart"><% if song.rappers.include? rapper %>
+            X
+          <% end %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

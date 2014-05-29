@@ -1,0 +1,1 @@
+RapPlanet::Application.config.secret_key_base = '470e5fc34c2c005b25189d2aa0071f77082d1acd5e162a15b8ba0710abffd21968eb284992205bd79bae88116987cae600a737ba25dc150dab4295974222bbae'
